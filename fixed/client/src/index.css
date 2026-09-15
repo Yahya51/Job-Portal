@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink: #0f0e11;
+  --cream: #f5f2ed;
+  --amber: #f59e0b;
+  --amber-light: #fef3c7;
+  --teal: #0d9488;
+  --teal-light: #ccfbf1;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* { font-family: 'DM Sans', sans-serif; }
+h1, h2, h3, h4, .display { font-family: 'Syne', sans-serif; }
+
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { display: none; }
+
+body { background-color: var(--cream); color: var(--ink); }
+
+/* Hero gradient mesh */
+.hero-bg {
+  background: linear-gradient(135deg, #0f0e11 0%, #1a1825 40%, #0d3d38 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 70%);
+  bottom: -50px; left: 10%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Animated tag chip */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { animation: fadeSlideUp 0.5s ease forwards; }
+.anim-2 { animation: fadeSlideUp 0.5s 0.15s ease both; }
+.anim-3 { animation: fadeSlideUp 0.5s 0.3s ease both; }
+.anim-4 { animation: fadeSlideUp 0.5s 0.45s ease both; }
+
+/* Job card hover */
+.job-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15,14,17,0.1);
+}
+
+/* Sidebar checkbox accent */
+input[type="checkbox"]:checked { accent-color: var(--teal); }
+
+/* Rich text styles */
+.rich-text { font-size: 15px; color: #555; line-height: 1.75; }
+.rich-text p { margin-bottom: 14px; }
+.rich-text h1 { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: #0f0e11; margin-bottom: 12px; }
+.rich-text h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: #0f0e11; margin-bottom: 10px; }
+.rich-text h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; color: #222; margin-bottom: 8px; }
+.rich-text strong { font-weight: 700; color: #0f0e11; }
+.rich-text ol { margin-left: 28px; list-style-type: decimal; }
+.rich-text ul { margin-left: 28px; list-style-type: disc; }
+.rich-text li { margin-bottom: 6px; }
+
+/* Btn styles */
+.btn-primary {
+  background: var(--ink);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #2d2b35; }
+
+.btn-teal {
+  background: var(--teal);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-teal:hover { background: #0f766e; }
+
+/* Quill editor custom */
+.ql-container { border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
+.ql-toolbar { border-top-left-radius: 8px; border-top-right-radius: 8px; background: #fafafa; }
